@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>clothinglist</title>
+</head>
+<body>
+<h2>등록된 의류 전체 조회</h2>
+<table>
+    <tr>
+        <th>clothing id</th>
+        <th>clothing Name</th>
+        <th>clothing Size</th>
+        <th>clothing Condition</th>
+        <th>user id</th>
+    </tr>
+    <tr th:each="clothing: ${clothingList}">
+        <td th:text="${clothing.clothingId}"></td>
+        <td th:text="${clothing.clothingName}"></td>
+        <td th:text="${clothing.clothingSize}"></td>
+        <td th:text="${clothing.clothingCondition}"></td>
+        <td th:text="${clothing.id}"></td>
+        <td>
+            <a th:href="@{|/clothing/${clothing.clothingId}|}">의류정보 상세조회</a>
+        </td>
+    </tr>
+</table>
+<button onclick="adminpage()">돌아가기</button><br>
+</body>
+<script>
+    const adminpage = () =>{
+    location.href = "/member/admin";
+    }
+</script>
+</html>

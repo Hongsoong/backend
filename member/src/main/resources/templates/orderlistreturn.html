@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>orderlistreturn</title>
+</head>
+<body>
+<h2>등록된 주문 정보 조회</h2>
+<table>
+  <tr>
+    <th>order Id |</th>
+    <th>id |</th>
+    <th>borrow Satart Time |</th>
+    <th>borrow Return Time |</th>
+    <th>clothing Id</th>
+  </tr>
+  <tr th:each="order: ${orderList}">
+    <td th:text="${order.orderId}"></td>
+    <td th:text="${order.id}"></td>
+    <td th:text="${order.borrowStartTime}"></td>
+    <td th:text="${order.borrowReturnTime}"></td>
+    <td th:text="${order.clothingId}"></td>
+    <td>
+      <a th:href="@{|/order/update/return/${order.orderId}|}">반납하기</a>
+    </td>
+  </tr>
+</table>
+<button onclick="customerpage()">돌아가기</button><br>
+</body>
+<script>
+    const customerpage = () => {
+    location.href = "/member/customer";
+    }
+</script>
+</html>

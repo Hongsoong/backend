@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>update</title>
+</head>
+<body>
+<form action="/member/update" method="post" name="updateForm">
+    <input type="hidden" th:value="${memberUpdate.id}" name="id"><br>
+    이메일: <input type="text" th:value="${memberUpdate.userEmail}" name="userEmail" readonly><br>
+    비밀번호: <input type="text" th:value="${memberUpdate.userQwd}" name="userQwd"><br>
+    이름: <input type="text" th:value="${memberUpdate.userName}" name="userName"><br>
+    휴대폰번호: <input type="text" th:value="${memberUpdate.userPhoneNumber}" name="userPhoneNumber"><br>
+    성별: <input type="text" th:value="${memberUpdate.userSex}" name="userSex"><br>
+    사이즈: <input type="text" th:value="${memberUpdate.userSize}" name="userSize"><br>
+    주소: <input type="text" th:value="${memberUpdate.userAddr}" name="userAddr"><br>
+    생일: <input type="text" th:value="${memberUpdate.userBirth}" name="userBirth"><br>
+    유저권한: <input type="text" th:value="${memberUpdate.userAuthority}" name="userAuthority"><br>
+    <input type="button" value="정보수정" onclick="memberUpdate()">
+
+</form>
+<script th:inline="javascript">
+    const memberUpdate = () => {
+        document.updateForm.submit();
+    }
+
+</script>
+</body>
+</html>

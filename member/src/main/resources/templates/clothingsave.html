@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>clothingsave</title>
+</head>
+<body>
+<form action="/clothing/save" method="post">
+    옷 이름: <input type="text" name="clothingName"><br>
+    옷 사이즈: <input type="text" name="clothingSize"><br>
+    옷 상태: <input type="text" name="clothingCondition"><br>
+    회원 고유 ID: <input type="text" name="id"><br>
+    <input type="submit" value="옷 등록">
+</form>
+<button onclick="customerpage()">돌아가기</button>
+</body>
+<script>
+    const customerpage = () =>{
+    location.href = "/member/customer";
+    }
+</script>
+</html>

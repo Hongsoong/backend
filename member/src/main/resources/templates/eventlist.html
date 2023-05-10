@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>eventlist</title>
+</head>
+<body>
+<h2>등록된 이벤트 내용 조회</h2>
+<table>
+    <tr>
+        <th>event Num |</th>
+        <th>event Contents</th>
+
+    </tr>
+    <tr th:each="event: ${eventList}">
+        <td th:text="${event.eventNum}"></td>
+        <td th:text="${event.eventContents}"></td>
+        <td>
+            <a th:href="@{|/event/${event.eventNum}|}">상세조회</a>
+        </td>
+    </tr>
+</table>
+<button onclick="adminpage()">돌아가기</button><br>
+</body>
+<script>
+    const adminpage = () =>{
+    location.href = "/member/admin";
+    }
+</script>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>orderupdatereturn</title>
+</head>
+<body>
+<h2>반납</h2>
+<form action="/order/update/return" method="post" name="updateForm">
+   <input type="hidden" name="orderId" th:value="${orderUpdateReturn.orderId}">
+   <input type="hidden" name="id" th:value="${orderUpdateReturn.id}">
+  <input type="hidden" name="borrowStartTime" th:value="${orderUpdateReturn.borrowStartTime}">
+  <input type="hidden" name="borrowReturnTime" th:value="${#calendars.format(#calendars.createNow(),'yyyy-MM-dd HH:mm:ss')}">
+  <input type="hidden" name="clothingId" th:value="${orderUpdateReturn.clothingId}">
+  <input type="button" value="반납" onclick="orderUpdate()">
+</form>
+<script th:inline="javascript">
+  const orderUpdate = () => {
+    document.updateForm.submit();
+    }
+</script>
+</body>
+</html>

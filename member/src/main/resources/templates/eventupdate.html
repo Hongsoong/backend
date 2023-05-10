@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>eventupdate</title>
+</head>
+<body>
+<form action="/event/update" method="post" name="updateForm">
+  num: <input type="text" name="eventNum" th:value="${eventUpdate.eventNum}"><br>
+  contents: <input type="text" name="eventContents" th:value="${eventUpdate.eventContents}"><br>
+  <input type="button" value="수정" onclick="eventUpdate()">
+</form>
+<script th:inline="javascript">
+   const eventUpdate = () => {
+        document.updateForm.submit();
+   }
+</script>
+</body>
+</html>

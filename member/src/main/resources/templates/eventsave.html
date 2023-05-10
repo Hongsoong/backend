@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>eventsave</title>
+</head>
+<body>
+<form action="/event/save" method="post">
+    이벤트 내용: <input type="text" name="eventContents"><br>
+    <input type="submit" value="이벤트등록">
+</form>
+<button onclick="adminpage()">돌아가기</button><br>
+</body>
+<script>
+    const adminpage = () =>{
+    location.href = "/member/admin";
+    }
+</script>
+</html>

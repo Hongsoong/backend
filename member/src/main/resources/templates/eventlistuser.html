@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>eventlistuser</title>
+</head>
+<body>
+<h2>등록된 이벤트 내용 조회</h2>
+<table>
+    <tr>
+        <th>event Num |</th>
+        <th>event Contents</th>
+
+    </tr>
+    <tr th:each="event: ${eventList}">
+        <td th:text="${event.eventNum}"></td>
+        <td th:text="${event.eventContents}"></td>
+    </tr>
+</table>
+<button onclick="customerpage()">돌아가기</button><br>
+</body>
+<script>
+    const customerpage = () =>{
+    location.href = "/member/customer";
+    }
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>customer</title>
+</head>
+<body>
+<h2>일반 사용자 페이지</h2>
+본인의 고유 ID: <p th:text="${session.loginEmail}"></p>
+<button onclick="memberupdate()">회원정보 수정하기</button><br>
+<button onclick="saveclothing()">의류정보 등록하기</button><br>
+<button onclick="clothinglist()">의류 목록</button><br>
+<button onclick="clothingreturn()">반납하기</button><br>
+<button onclick="eventuser()">이벤트 정보</button><br><br><br>
+<button onclick="logoutuser()">로그아웃</button>
+
+
+
+
+</body>
+<script>
+    const saveclothing = () =>{
+    location.href = "/clothing/save";
+    }
+    const eventuser = () =>{
+    location.href = "/event/user";
+    }
+    const logoutuser = () => {
+    location.href = "/member/logout";
+    }
+    const clothinglist = () => {
+    location.href = "/clothing/user";
+    }
+    const clothingreturn = () => {
+    location.href = "/order/return";
+    }
+</script>
+</html>

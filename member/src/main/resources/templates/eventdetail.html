@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>eventdetail</title>
+</head>
+<body>
+<h2>이벤트 내용 상세 정보입니다.</h2>
+<table>
+    <tr>
+        <td>event Num</td>
+        <td>event Contents</td>
+    </tr>
+    <tr>
+        <td th:text="${event.eventNum}"></td>
+        <td th:text="${event.eventContents}"></td>
+
+    </tr>
+</table>
+<button onclick="listevent()">목록</button>
+<button onclick="updateevent()">수정</button>
+<button onclick="deleteevent()">삭제</button>
+</body>
+<script th:inline="javascript">
+    const listevent = () => {
+        console.log("목록요청");
+        location.href = "/event/";
+        }
+    const updateevent = () => {
+        console.log("목록수정");
+        const eventNum = [[${event.eventNum}]];
+        location.href = "/event/update/" + eventNum;
+        }
+    const deleteevent = () => {
+        console.log("삭제요청");
+        const eventNum = [[${event.eventNum}]];
+        location.href = "/event/delete/" + eventNum;
+        }
+</script>
+</html>

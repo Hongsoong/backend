@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ordersave</title>
+</head>
+<body>
+<h2>빌리기</h2>
+<form action="/order/save" method="post">
+    빌린사람의 아이디: <input type="text" name="id"><br>
+    빌린시간: <input type="text" name="borrowStartTime" th:value="${#calendars.format(#calendars.createNow(),'yyyy-MM-dd HH:mm:ss')}"><br>
+    의류아이디: <input type="text" name="clothingId"><br>
+
+    <input type="submit" value="빌리기">
+</form>
+<script>
+
+</script>
+</body>
+</html>

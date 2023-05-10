@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>detail</title>
+</head>
+<body>
+<h2>회원 정보입니다.</h2>
+<table>
+  <tr>
+  <td>id</td>
+  <td>email</td>
+  <td>password</td>
+  <td>name</td>
+  <td>phone</td>
+  <td>sex</td>
+  <td>size</td>
+  <td>addr</td>
+  <td>authority</td>
+  <td>birth</td>
+  </tr>
+  <tr>
+    <td th:text="${member.id}"></td>
+    <td th:text="${member.userEmail}"></td>
+    <td th:text="${member.userQwd}"></td>
+    <td th:text="${member.userName}"></td>
+    <td th:text="${member.userPhoneNumber}"></td>
+    <td th:text="${member.userSex}"></td>
+    <td th:text="${member.userSize}"></td>
+    <td th:text="${member.userAddr}"></td>
+    <td th:text="${member.userAuthority}"></td>
+    <td th:text="${member.userBirth}"></td>
+  </tr>
+</table>
+<button onclick="listmember()">목록</button>
+<button onclick="updatemember()">수정</button>
+<button onclick="deletemember()">삭제</button>
+</body>
+<script th:inline="javascript">
+    const deletemember = () => {
+      console.log("삭제요청");
+      const id = [[${member.id}]];
+      location.href = "/member/delete/" + id;
+      }
+    const listmember = () => {
+      console.log("목록요청");
+      location.href="/member/";
+      }
+    const updatemember = () =>{
+      console.log("수정요청");
+      const id = [[${member.id}]];
+      location.href = "/member/update/" + id;
+      }
+</script>
+</html>

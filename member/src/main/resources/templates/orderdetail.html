@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>orderdetail</title>
+</head>
+<body>
+<h2>주문정보 상세페이지 입니다.</h2>
+<table>
+    <tr>
+        <td>order Id</td>
+        <td>ID</td>
+        <td>Borrow Start Time</td>
+        <td>Borrow Return Time</td>
+        <td>Clothing Id</td>
+    </tr>
+    <tr>
+        <td th:text="${order.orderId}"></td>
+        <td th:text="${order.id}"></td>
+        <td th:text="${order.borrowStartTime}"></td>
+        <td th:text="${order.borrowReturnTime}"></td>
+        <td th:text="${order.clothingId}"></td>
+    </tr>
+</table>
+<button onclick="listorder()">목록</button>
+<button onclick="updateorder()">수정</button>
+<button onclick="deleteorder()">삭제</button>
+</body>
+<script th:inline="javascript">
+    const listorder = () => {
+        console.log("목록요청");
+        location.href = "/order/";
+        }
+    const updateorder = () => {
+        console.log("목록수정");
+        const orderId = [[${order.orderId}]];
+        location.href = "/order/update/" + orderId;
+        }
+    const deleteorder = () => {
+        console.log("삭제요청");
+        const orderId = [[${order.orderId}]];
+        location.href = "/order/delete/" + orderId;
+        }
+</script>
+</html>

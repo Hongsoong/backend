@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>admin</title>
+</head>
+<body>
+<h2>관리자페이지</h2>
+본인의 고유 ID: <p th:text="${session.loginEmail}"></p>
+<button onclick="selectmember()">회원정보조회</button><br>
+<button onclick="selectclothing()">의류정보조회</button><br>
+<button onclick="selectevent()">이벤트정보조회</button><br>
+<button onclick="selectorder()">주문정보조회</button><br><br>
+<button onclick="eventsave()">이벤트정보입력</button><br><br><br>
+<button onclick="logoutuser()">로그아웃</button>
+
+</body>
+<script>
+    const selectevent = () =>{
+     location.href = "/event/";
+    }
+    const eventsave = () =>{
+     location.href = "/event/save";
+    }
+    const selectclothing = () =>{
+     location.href = "/clothing/";
+    }
+    const selectmember = () =>{
+     location.href = "/member/";
+    }
+    const logoutuser = () =>{
+     location.href = "/member/logout";
+    }
+    const selectorder = () => {
+     location.href = "/order/";
+    }
+
+</script>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>clothingupdate</title>
+</head>
+<body>
+<form action="/clothing/update" method="post" name="updateForm">
+    <input type="hidden" th:value="${clothingUpdate.clothingId}" name="clothingId"><br>
+    의류이름: <input type="text" th:value="${clothingUpdate.clothingName}" name="clothingName"><br>
+    의류사이즈: <input type="text" th:value="${clothingUpdate.clothingSize}" name="clothingSize"><br>
+    의류상태: <input type="text" th:value="${clothingUpdate.clothingCondition}" name="clothingCondition"><br>
+    등록유저 ID(고유): <input type="text" th:value="${clothingUpdate.id}" name="id"><br>
+    <input type="button" value="정보수정" onclick="clothingUpdate()">
+</form>
+<script th:inline="javascript">
+    const clothingUpdate = () => {
+        document.updateForm.submit();
+    }
+</script>
+</body>
+</html>

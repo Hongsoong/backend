@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>clothingdetail</title>
+</head>
+<body>
+<h2>의류 상세 정보입니다.</h2>
+<table>
+    <tr>
+        <td>clothing id</td>
+        <td>clothing name</td>
+        <td>clothing size</td>
+        <td>clothing condition</td>
+        <td>user id(고유)</td>
+    </tr>
+    <tr>
+        <td th:text="${clothing.clothingId}"></td>
+        <td th:text="${clothing.clothingName}"></td>
+        <td th:text="${clothing.clothingSize}"></td>
+        <td th:text="${clothing.clothingCondition}"></td>
+        <td th:text="${clothing.id}"></td>
+    </tr>
+</table>
+<button onclick="listclothing()">목록</button>
+<button onclick="updateclothing()">수정</button>
+<button onclick="deleteclothing()">삭제</button>
+</body>
+<script th:inline="javascript">
+    const listclothing = () => {
+        console.log("목록");
+        location.href="/clothing/";
+        }
+    const deleteclothing = () => {
+        console.log("삭제요청");
+        const clothingId = [[${clothing.clothingId}]];
+        location.href = "/clothing/delete/" + clothingId;
+        }
+    const updateclothing = () => {
+        console.log("수정요청");
+        const clothingId = [[${clothing.clothingId}]];
+        location.href = "/clothing/update/" + clothingId;
+    }
+
+</script>
+</html>
